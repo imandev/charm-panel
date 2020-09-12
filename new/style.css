@@ -221,6 +221,7 @@ d{
     /* grid-template-columns: auto auto; */
     width: 100%;
     border-top: 3px solid #ccc;
+    background-color: #f3f3f3;
 }
 .map{
 display: flex;
@@ -253,9 +254,36 @@ flex-direction: column;
 }
 
 .dotes{
-    position: absolute;
     height: 6px;
     width: 6px;
-    background-color: aqua;
+    background-color: #fff;
     border-radius: 50%;
+    position: absolute;
+}
+.wave-1{
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, 0.3);
+     border: 1.3px solid #fff;
+}
+.wave-2{
+
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, 0.3);
+     border: 1.3px solid #fff;
+}
+.wave-3{
+   
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, 0.3);
+     border: 1.3px solid #fff;
+}
+.col{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     border: 1.3px solid #000;
 }

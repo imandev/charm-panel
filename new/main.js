@@ -3,8 +3,25 @@
   const p1 = document.querySelectorAll(".part-1 li");
   const main = document.querySelector(".main");
   footerTop = document.querySelector(".footer").offsetTop;
-  const dotes =  document.querySelectorAll(".dotes");
-  app.to(dotes[0],{marginRight:'17vw',marginTop:'17vh'})
+  const col =  document.querySelectorAll(".col");
+  const wave1 =  document.querySelectorAll(".wave-1");
+  const wave2 =  document.querySelectorAll(".wave-2");
+  const wave3 =  document.querySelectorAll(".wave-3");
+
+  app.to(col[0],{marginRight:'18vw',marginTop:'18vh',duration:0})
+  app.to(col[1],{marginRight:'24vw',marginTop:'19.6vh',duration:0})
+  app.to(col[2],{marginRight:'28.3vw',marginTop:'19.6vh',duration:0})
+  app.to(col[3],{marginRight:'26.3vw',marginTop:'26.6vh',duration:0})
+  app.to(col[4],{marginRight:'21.3vw',marginTop:'28.6vh',duration:0})
+  app.to(col[5],{marginRight:'20.3vw',marginTop:'36.6vh',duration:0})
+
+ for (let i = 0; i < wave1.length; i++) {
+    
+    app.fromTo(wave1[i],{opacity:1},{width:"19px",height:"19px", duration:1, repeat:-1,opacity:0})
+    app.fromTo(wave2[i],{opacity:1},{width:"29px",height:"29px", duration:1, repeat:-1,opacity:0})
+    app.fromTo(wave3[i],{opacity:1},{width:"39px",height:"39px", duration:1, repeat:-1,opacity:0}) 
+ }
+
   part2.style.left =p1[0].offsetLeft;
 
   function move(e) {
@@ -31,7 +48,7 @@
       })
   });
 
-  data =async (from,to)=>{
+  data =async ()=>{
       // gallery
         const response_gallery = await fetch(`http://localhost/panel/json_gallery.php`,Option);
         const data_gallery = await response_gallery.json();
