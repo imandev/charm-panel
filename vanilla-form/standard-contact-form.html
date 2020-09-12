@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>A clean, minimal and functional contact form</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+    <style>
+        h1 {
+            font-family: Lato, sans-serif;
+            font-weight: 300;
+            text-align: center;
+        }
+    </style>
+
+
+    <!-- Vanilla's resources start here -->
+    <link rel="stylesheet" href="css/vanilla-form.css">
+    <script src="js/vanilla-form.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var myForm;
+            myForm = new VanillaForm(document.querySelector("form.vanilla-form"));
+        });
+    </script>
+    <!-- Vanilla's resources end here -->
+
+</head>
+<body>
+<div class="content">
+    <!-- <h3 style="text-align: center;">ارسال پیام</h3> -->
+    <div class="form-container">
+        <!-- Vanilla Form markup starts here -->
+        <form action="standard-contact-form.php" method="post" class="vanilla-form" novalidate="novalidate">
+            <!-- Left column -->
+            <div class="column-50 center">
+                <input type="text" name="name" placeholder="نام کامل" required="required">
+                <input type="email" name="email" placeholder="ایمیل شما" required="required">
+                <input type="tel" name="tel" placeholder="شماره تماس">
+            </div><!--
+                Right column
+            --><div class="column-50">
+            
+            
+            </div>
+            <div class="column-50">
+               
+                <textarea name="message" placeholder="پیام متنی خود را برای ما ارسال کنید"></textarea>
+                <label><input type="checkbox" name="terms" value="true" required="required"><span><!-- fake checkbox --></span> <span class="wrapped-label">من شرایط و قوانین سایت را میپذیرم</span></label>
+            </div>
+            <div class="column-50 center">
+                <input style="text-align: center; border: 1px solid black; cursor: pointer;" type="submit" value="ارسال" data-error="فیلد مورد نظر خالیست" data-processing="در حال ارسال..." data-success="با تشکر!">
+            </div>
+            <footer class="notification-box"></footer>
+        </form>
+        <!-- Vanilla Form markup ends here -->
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="preview-frame">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>A clean, minimal and functional contact form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        function setPreview(preview, elem) {
+            var container = document.querySelector(".form-container"),
+                activeElement;
+
+            activeElement = elem.parentNode.querySelector(".active");
+            if (activeElement) {
+                activeElement.classList.remove("active");
+            }
+            elem.classList.add("active");
+
+            switch (preview) {
+                case "smartphone":
+                case "tablet":
+                    container.className = "form-container simulate-"+preview;
+                    break;
+                default:
+                    container.className = "form-container";
+                    break;
+            }
+        }
+    </script>
+
+    <!-- Vanilla Form start -->
+    <link rel="stylesheet" href="../vanilla-form/css/vanilla-form.css">
+    <script src="../vanilla-form/js/vanilla-form.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            "use strict";
+            var myForm = new VanillaForm(document.querySelector(".vanilla-form"));
+        });
+    </script>
+    <!-- Vanilla Form end -->
+
+
+</head>
+<body>
+    <div class="icons">
+        <a href="#" class="logo">Vanilla Form.js</a>
+        <a href="javascript:void(0);" class="smartphone-icon" onclick="setPreview('smartphone', this)"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="100%" height="100%" viewBox="235 225 30 50" enable-background="new 235 225 30 50" xml:space="preserve"><path d="M260.4 225h-20.9c-2.5 0-4.5 2.1-4.5 4.5v41c0 2.5 2 4.4 4.5 4.4h20.9c2.5 0 4.6-2 4.6-4.4v-41c0-2.5-2.1-4.5-4.6-4.5H260.4zM249.9 274c-1.1 0-1.9-0.9-1.9-1.9 0-1.1 0.9-1.9 1.9-1.9 1.1 0 1.9 0.9 1.9 1.9 0 1.1-0.9 1.9-1.9 1.9L249.9 274zM260.6 265.2c0 2.1-1.4 3.9-3.2 3.9h-14.9c-1.8 0-3.1-1.8-3.1-3.9v-32.7c0-2.1 1.2-3.8 3.1-3.8h14.9c1.8 0 3.2 1.7 3.2 3.8v32.7H260.6z"/></svg></a>
+        <a href="javascript:void(0);" class="tablet-icon" onclick="setPreview('tablet', this)"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="100%" height="100%" viewBox="229 223.8 40 50" enable-background="new 229 223.833 40 50" xml:space="preserve"><path d="M264.5 223.8h-30.8c-2.5 0-4.7 1.9-4.7 4.4v41c0 2.5 2.2 4.6 4.7 4.6h30.8c2.5 0 4.5-2.2 4.5-4.6v-41C269 225.8 267 223.8 264.5 223.8zM249.1 272.6c-1.1 0-1.9-0.9-1.9-1.9s0.9-1.9 1.9-1.9 1.9 0.9 1.9 1.9C251 271.7 250.2 272.6 249.1 272.6zM264.8 263.8c0 2.1-1.5 4-3.3 4h-24.8c-1.8 0-3.5-1.9-3.5-4v-32.6c0-2.1 1.7-3.6 3.5-3.6h24.8c1.8 0 3.3 1.5 3.3 3.6V263.8z"/></svg></a>
+        <a href="javascript:void(0);" class="desktop-icon" onclick="setPreview('desktop', this)"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="100%" height="100%" viewBox="220 225 60 50" enable-background="new 220 225 60 50" xml:space="preserve"><path d="M225.4 265.7h19.7v5.9c-8 0.8-12.1 0.1-14.2 3.4h38.4c-2.1-3.3-6.3-2.6-14.2-3.4v-5.9h19.7c3 0 5.4-2.4 5.4-5.3v-30c0-2.9-2.4-5.3-5.3-5.3h-49.3c-3 0-5.3 2.4-5.3 5.3v30C220 263.3 222.4 265.7 225.4 265.7zM224.3 233.9c0-2.2 2.1-4 4.6-4h42.2c2.5 0 4.6 1.8 4.6 4v22.9c0 2.2-2.1 4-4.6 4h-42.2c-2.5 0-4.6-1.8-4.6-4V233.9z"/></svg></a>
+    </div>
+    <div class="content">
+        <h1>A clean, minimal and functional contact form.</h1>
+        <div class="form-container">
+            <!-- Vanilla Form markup starts here -->
+            <form action="demo-contact-form.php" method="post" class="vanilla-form" novalidate="novalidate">
+                <!-- Left column -->
+                <div class="column-50">
+                    <input type="text" name="name" placeholder="Your name" required="required">
+                    <input type="email" name="email" placeholder="Your e-mail" required="required">
+                </div><!--
+                Right column
+                --><div class="column-50">
+                    <input type="tel" name="tel" placeholder="Phone">
+                    <label class="custom-select">
+                        <select name="department">
+                            <option>Sales</option>
+                            <option>Marketing</option>
+                            <option>Customer Support</option>
+                            <option>Other</option>
+                        </select><span><!-- fake select handler --></span>
+                    </label>
+                </div>
+                <div class="column-100">
+                    <div class="radio-set">
+                        Your sex:
+                        <label><input type="radio" name="sex" value="M"><span><!-- fake radio --></span> Male</label>
+                        <label><input type="radio" name="sex" value="F"><span><!-- fake radio --></span> Female</label>
+                    </div>
+                    <textarea name="message" placeholder="Type your message here..."></textarea>
+                    <label>
+                        <input type="checkbox" name="terms" value="true">
+                        <span><!-- fake checkbox --></span>
+                        <span class="wrapped-label">I agree to the <a href="#">Terms & Conditions</a>. (if you accept this you will receive a copy of e-mail with filled data)</span></label>
+                    </label>
+                </div>
+                <div class="column-100 center">
+                    <input type="submit" value="Send" data-error="Fix errors" data-processing="Sending..." data-success="Thank you!">
+                </div>
+                <footer class="notification-box"></footer>
+            </form>
+            <!-- Vanilla Form markup ends here -->
+        </div>
+        <section>
+            <div class="rotate">
+                <h3>Mobile & User friendly</h3>
+                <figure>
+                    <div class="screenshot screenshot-1"></div>
+                    <figcaption>Default keyboard for common text fields.</figcaption>
+                </figure>
+                <figure>
+                    <div class="screenshot screenshot-2"></div>
+                    <figcaption>Phone keyboard for phone numbers.</figcaption>
+                </figure>
+                <figure>
+                    <div class="screenshot screenshot-3"></div>
+                    <figcaption>E-mail optimized keyboard for email fields.</figcaption>
+                </figure>
+            </div><p class="center">
+            Vanilla Form is not only responsive and optimized for hi-resolution devices (like Retina Displays).
+            To improve user experience of your web page Vanilla Form turns on adequate
+            virtual keyboard on mobile devices.
+        </p>
+        </section>
+        <section>
+            <div class="column-50">
+                <h3>Ready to use anywhere you want</h3>
+                <p>
+                    Vanilla Form uses JavaScript to send filled data to server using AJAX. This means, your page won't reload after form submit.
+                    Vanilla Form written with speed and independence in mind. No 3rd party library is needed like jQuery.
+                    But if you want to, you can easily integrate it with any web framework you want.
+                </p>
+            </div><div class="column-50">
+                <h3>Anti-spam protection</h3>
+                <p>
+                    Hate SPAM and captcha? So do I. Vanilla Form has an no annoying captcha. Thanks for smart built-in anti-bot protection
+                    it saves you from most of unwanted messages.
+                </p>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+
