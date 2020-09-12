@@ -2,18 +2,22 @@
   const part2 =document.querySelector(".part-2");
   const p1 = document.querySelectorAll(".part-1 li");
   const main = document.querySelector(".main");
-  footerTop = document.querySelector(".footer").offsetTop;
+  const footerTop = document.querySelector(".footer");
+  var defaultDuration =300 // ms
+    var edgeOffset = 142 // px
+    zenscroll.setup(defaultDuration, edgeOffset)
+
   const col =  document.querySelectorAll(".col");
   const wave1 =  document.querySelectorAll(".wave-1");
   const wave2 =  document.querySelectorAll(".wave-2");
   const wave3 =  document.querySelectorAll(".wave-3");
 
-  app.to(col[0],{marginRight:'18vw',marginTop:'18vh',duration:0})
-  app.to(col[1],{marginRight:'24vw',marginTop:'19.6vh',duration:0})
-  app.to(col[2],{marginRight:'28.3vw',marginTop:'19.6vh',duration:0})
-  app.to(col[3],{marginRight:'26.3vw',marginTop:'26.6vh',duration:0})
-  app.to(col[4],{marginRight:'21.3vw',marginTop:'28.6vh',duration:0})
-  app.to(col[5],{marginRight:'20.3vw',marginTop:'36.6vh',duration:0})
+  app.to(col[0],{marginLeft:'13vw',marginTop:'21vh',duration:0})
+  app.to(col[1],{marginLeft:'3vw',marginTop:'22.6vh',duration:0})
+  app.to(col[2],{marginLeft:'-6vw',marginTop:'22.6vh',duration:0})
+  app.to(col[3],{marginLeft:'6.3vw',marginTop:'29.6vh',duration:0})
+  app.to(col[4],{marginLeft:'-3.3vw',marginTop:'30.6vh',duration:0})
+  app.to(col[5],{marginLeft:'9.3vw',marginTop:'39.6vh',duration:0})
 
  for (let i = 0; i < wave1.length; i++) {
     
@@ -93,7 +97,7 @@
                   behavior: 'auto'
                 });
            main.innerHTML="";
-           main.style.justifyContent="flex-start";
+           main.style.justifyContent="center";
            main.style.alignItems="flex-start";
            main.style.gridTemplateColumns="auto auto auto auto auto auto";
           for (let j = 0; j < categories.length; j++) {
@@ -106,17 +110,9 @@
           }
           }
       }
+
       document.getElementById('information').onclick=()=>{
-     window.scrollTo({
-          top: footerTop,
-          behavior: 'smooth'
-        });
-      }
-      document.querySelector('.home').onclick=()=>{
-          window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
+       zenscroll.to(footerTop)
       }
   // info sections
   document.querySelector(".email").innerHTML=`${data_info[0].email}`;
@@ -132,4 +128,6 @@
           main.style.justifyContent="center";
           main.style.alignItems="center";
           data();
+         zenscroll.toY(0,0)
       }
+     
