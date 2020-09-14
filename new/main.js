@@ -107,7 +107,31 @@
                   <img src="../uploads/images/${element.file_name}">
                   <span class="d-name">${element.name}</span>
                </div>`;
+               const new_page = document.querySelectorAll(".new-page") 
+               new_page.forEach(element => {
+                   element.onclick=()=>{
+                       const att = element.getAttribute("data-index");
+                    const categories = data_gallery_images.filter(gallery => gallery.ext==att);
+                    categories.forEach(element => {
+                        document.querySelector(".n-page-cat").style.display="flex";
+                        document.body.style.overflow = 'hidden';
+                        document.querySelector(".img-close").onclick=()=>{
+                         document.querySelector(".n-page-cat").style.display="none";
+                         document.querySelector(".img-footer").innerHTML="";
+                         document.body.style.overflowY = 'scroll';
+                        }
+                         document.querySelector(".img-start").innerHTML=`
+                         <img src="../uploads/images/${categories[0].file_name}">
+                         `;
+                         document.querySelector(".img-footer").innerHTML+=`
+                          <img class="final-product" src="../uploads/images/${element.file_name}">
+                         `
+                     });
+                   }
+               });
+            
           }
+         
           }
       }
 
@@ -121,7 +145,9 @@
   document.querySelector(".whatsapp").innerHTML=`${data_info[0].whatsapp}`;
   document.querySelector(".short").innerHTML=`${data_info[0].infotext}`;
       }
+
       data();
+
       document.getElementById("home").onclick=()=>{
           main.innerHTML="";
           main.style.gridTemplateColumns="auto auto auto auto";

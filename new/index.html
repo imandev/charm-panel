@@ -10,9 +10,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/vanilla-form.css">
     <script src="../js/vanilla-form.js"></script>
+    <link rel="stylesheet" href="./all.css">
 </head>
 <body>
-    <div class="top"></div>
+    <div class="n-page-cat">
+        <div class="img-close"></div>
+        <div class="img-main">
+            <div class="img-start"></div>
+            <div class="img-info">
+                <p>نام محصول</p>
+                <p>قیمت</p>
+                <p>توضیحات</p>
+                 <p>درباره این محصول</p>
+                <div class="img-footer"></div>
+            </div>
+        </div>
+    </div>
     <nav class="header">
         <span class="col-tabs">
             <span class="part-1">
@@ -59,7 +72,8 @@
             <label style="width: 100%; text-align: right; display: flex; justify-content: center; align-items: center;"><input type="checkbox" name="terms" value="true" required="required"><span><!-- fake checkbox --></span> <span class="wrapped-label">من شرایط و قوانین سایت را میپذیرم</span></label>
         </div>
         <div class="column-100 center">
-            <input style="text-align: center; border: 1px solid black; cursor: pointer;" type="submit" value="ارسال" data-error="فیلد مورد نظر خالیست" data-processing="در حال ارسال..." data-success="با تشکر!">
+            <i class='fad fa-envelope' style="position: absolute; margin-top: 9px;margin-left: 9px; font-size: 26px; color: #868686;"></i>
+            <input style="text-align: center; border: 1px solid black; cursor: pointer; border-radius: 6px;" type="submit" value="      ارسال" data-error="فیلد مورد نظر خالیست" data-processing="در حال ارسال..." data-success="با تشکر!">
         </div>
         <footer class="notification-box"></footer>
     </form>

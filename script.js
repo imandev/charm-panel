@@ -25,16 +25,20 @@ data =async ()=>{
     // gallery_image
      const response_gallery_images = await fetch(`http://localhost/panel/json_gallery_images.php`,Option);
     const data_gallery_images = await response_gallery_images.json();
-    console.log(data_gallery, data_gallery_images);
+    //console.log(data_gallery, data_gallery_images);
     // container
     const container = document.querySelector(".container");
     // images
+    // 
+   const cat = data_gallery_images.map(elm=>elm.gallery_id)
+   
     
     for (let i = 0; i < data_gallery_images.length; i++) {
       const element = data_gallery_images[i];
+      const category = data_gallery.filter(g=>g.id==cat[i]);
       container.innerHTML+=`
       <div class="box-img">
-      <span class="title${element.gallery_id}"></span>
+      <span>${category[0].title}</span>
       <img src="./uploads/images/${element.file_name}">
       <label for="">توضیحات</label>
       <textarea name="description[]">
@@ -45,19 +49,12 @@ data =async ()=>{
       <input value="${element.name}" type="text"  name="name[]">
       <label for="">قیمت</label>
       <input value="${element.price}" type="number"  name="price[]">
-      <label for="">موجودی</label>
-      <input value="${element.ext}" type="number"  name="ext[]">
+      <label for="">دسته بندی</label>
+      <input value="${element.ext}" type="text"  name="ext[]">
       </div>
       `;
     }
-    for (let i = 0; i < data_gallery.length; i++) {
-      const element = data_gallery[i];
-      console.log(data_gallery[i]);
-      const titlex = document.querySelectorAll(`.title${[i+1]}`);
-      titlex.forEach(titlez => {
-        titlez.innerHTML=element.title;
-      });
-    }
+  
   
 }
 data();
