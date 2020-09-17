@@ -4,14 +4,15 @@
   const main = document.querySelector(".main");
   const footerTop = document.querySelector(".footer");
   var defaultDuration =300 // ms
-    var edgeOffset = 142 // px
+  var edgeOffset = 142 // px
     zenscroll.setup(defaultDuration, edgeOffset)
 
   const col =  document.querySelectorAll(".col");
   const wave1 =  document.querySelectorAll(".wave-1");
   const wave2 =  document.querySelectorAll(".wave-2");
   const wave3 =  document.querySelectorAll(".wave-3");
-
+  const star ='<img width="30" src="./star.svg" alt="">'
+  const starColor ='<img width="30" src="./star-color.svg" alt="">'
   app.to(col[0],{marginLeft:'13vw',marginTop:'21vh',duration:0})
   app.to(col[1],{marginLeft:'3vw',marginTop:'22.6vh',duration:0})
   app.to(col[2],{marginLeft:'-6vw',marginTop:'22.6vh',duration:0})
@@ -121,15 +122,33 @@
                          document.body.style.overflowY = 'scroll';
                         }
                          document.querySelector(".img-start").innerHTML=`
-                         <img src="../uploads/images/${categories[0].file_name}">
+                         <img data-index="${categories[0].file_name}" src="../uploads/images/${categories[0].file_name}">
                          `;
                          document.querySelector(".img-footer").innerHTML+=`
-                          <img class="final-product" src="../uploads/images/${element.file_name}">
+                          <img
+                          data-fileName="${element.file_name}"
+                          data-name="${element.name}"
+                          data-price="${element.price}"
+                          data-description ="${element.description}"
+                          class="final-product" src="../uploads/images/${element.file_name}">
                          `
+                
                      });
+                     const finalProduct = document.querySelectorAll(".final-product");
+                        finalProduct.forEach(element => {
+                            element.onclick=()=>{
+                                document.querySelector(".img-start").innerHTML=`
+                         <img src="../uploads/images/${element.getAttribute("data-fileName")}">
+                         `;
+                                document.querySelector(".p-name").innerHTML=`${element.getAttribute("data-name")}`;
+                                document.querySelector(".p-price").innerHTML=`${element.getAttribute("data-price")}`;
+                                document.querySelector(".p-description").innerHTML=`${element.getAttribute("data-description")}`;
+                                document.querySelector(".star").innerHTML=`${(1>2 ? star: starColor)}`;
+                            }
+                        });
                    }
                });
-            
+        
           }
          
           }
