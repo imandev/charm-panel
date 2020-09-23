@@ -17,8 +17,8 @@ $dbname = 'codexworld';
   }
 
 //Fetch 3 rows from actor table
-  //$result = $dblink->query("SELECT * FROM gallery_images ORDER BY id DESC");
-  $result = $dblink->query("SELECT * FROM gallery_images ");
+  $result = $dblink->query("SELECT * FROM gallery_images ORDER BY id DESC");
+  //$result = $dblink->query("SELECT * FROM gallery_images ");
 //Initialize array variable
   $dbdata = array();
 

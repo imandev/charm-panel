@@ -23,7 +23,7 @@ data =async ()=>{
     const response_gallery = await fetch(`http://localhost/panel/json_gallery.php`,Option);
     const data_gallery = await response_gallery.json();
     // gallery_image
-     const response_gallery_images = await fetch(`http://localhost/panel/json_gallery_images.php`,Option);
+     const response_gallery_images = await fetch(`http://localhost/panel/json_gallery_images_clone.php`,Option);
     const data_gallery_images = await response_gallery_images.json();
     //console.log(data_gallery, data_gallery_images);
     // container
